@@ -27,7 +27,7 @@ model.con_0 = Constraint(
 )
 
 solver = get_solver(Solver.BONMIN)
-results = solver.results(model)
+results = solver.solve(model)
 
 for v in model.component_data_objects(Var):
     print(str(v), v.value)
