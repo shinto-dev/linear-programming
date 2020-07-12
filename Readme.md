@@ -7,3 +7,5 @@ Github page: https://github.com/Pyomo/pyomo
 
 
 Knapsack
+
+N-Queens

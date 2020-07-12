@@ -4,6 +4,7 @@
 #   Q   -   -   -
 #   -   -   Q   -
 #
+# Refer : http://thejavamathematician.blogspot.com/2015/02/the-n-queens-puzzle-and-0-1-integer.html
 
 from pyomo.core import ConcreteModel, Constraint, Objective, RangeSet, Var, maximize
 from pyomo.repn.plugins.baron_writer import Binary
@@ -41,15 +42,19 @@ def n_queens(board_size=4):
     solver = solver_factory.get_solver(Solver.BONMIN)
     solver.solve(model)
 
-    for v in model.component_data_objects(Var):
-        print(str(v), v.value)
+    return [(i, j)
+            for i in range(1, board_size + 1)
+            for j in range(1, board_size + 1) if model.x[i, j] == 1]
 
+
+def _display_solution(board_size, solution):
+    solution_as_set = set(solution)
     for i in range(1, board_size + 1):
         res = ""
         for j in range(1, board_size + 1):
-            res += "Q " if model.x[i, j].value else "- "
+            res += "Q " if (i, j) in solution_as_set else "- "
         print(res)
 
 
 if __name__ == '__main__':
-    n_queens(8)
+    _display_solution(8, n_queens(8))
