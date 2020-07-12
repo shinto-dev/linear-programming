@@ -27,8 +27,7 @@ def solve_sudoku(board):
     model.column_level_constraint = Constraint(
         model.Y, model.DIGIT, rule=lambda m, y, d: sum(m.value[x, y, d] for x in model.X) == 1
     )
-
-    model.con4 = Constraint(
+    model.subsquare_level_constraint = Constraint(
         range(1, 9, 3), range(1, 9, 3), model.DIGIT,
         rule=lambda m, i, j, d: sum(m.value[x, y, d] for x in range(i, i + 3) for y in range(j, j + 3)) == 1)
 
