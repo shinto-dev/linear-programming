@@ -1,11 +1,15 @@
-Pyomo: https://pyomo.readthedocs.io/en/stable/index.html
-
-Refer
-https://jckantor.github.io/ND-Pyomo-Cookbook/
-
-Github page: https://github.com/Pyomo/pyomo
+The examples in this repo uses [Pyomo](https://pyomo.readthedocs.io/en/stable/index.html). 
 
 
-Knapsack
+## Examples
+ - [Knapsack](examples/knapsack)
+ - [N-Queens](examples/eight_queens)
 
-N-Queens
+
+## Solvers used:
+ - [Bonmin](https://github.com/coin-or/Bonmin)
+ 
+ 
+ 
+ ## References
+ https://jckantor.github.io/ND-Pyomo-Cookbook/
